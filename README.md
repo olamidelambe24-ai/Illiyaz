@@ -60,8 +60,25 @@ Open the printed URL, click "New here? Create an account", and sign up. Each per
 - Postgres **Row Level Security** policies (set up by `supabase-schema.sql`) enforce that a user can only select, insert, update, or delete their own rows — this is enforced by the database itself, not just hidden in the app, so it holds even if someone inspects network requests.
 - The Profile tab shows account info, usage stats, a sign-out button, and a "Clear all my data" option (only affects that user's own data).
 
+## Installing it as an app on your phone
+
+This project is set up as a **Progressive Web App (PWA)** — once deployed, anyone can install it to their phone's home screen like a real app, with its own icon and no browser address bar. No app store needed.
+
+**On Android (Chrome):**
+1. Open your deployed site (e.g. `https://illiyaz.vercel.app`)
+2. Tap the **⋮** menu → **Install app** (or you may see an automatic "Install" banner)
+3. It'll appear on the home screen and open full-screen like a native app
+
+**On iPhone (Safari):**
+1. Open your deployed site in **Safari** (must be Safari, not Chrome — iOS only supports this from Safari)
+2. Tap the **Share** icon (square with an arrow) → **Add to Home Screen**
+3. Tap **Add** — it now behaves like an installed app
+
+Nothing extra needs deploying for this to work — it's already built into the project (see `vite.config.js`, the `public/icons/` folder, and the meta tags in `index.html`). Just push this code and redeploy on Vercel as usual.
+
 ## Tech stack
 - React 18 + Vite
 - Supabase (Postgres + Auth) for accounts and data
+- vite-plugin-pwa (installable app support)
 - Recharts (charts)
 - lucide-react (icons)
